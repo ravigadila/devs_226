@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "wagtail",
     "modelcluster",
     "taggit",
+    "blog",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -88,10 +89,10 @@ WSGI_APPLICATION = "devs_226.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'devs226',
-        'USER': 'DB_USER',
-        'PASSWORD': 'DB_PASSWORD',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'NAME': os.getenv("DB_NAME", "devs226"),
+        'USER': os.getenv("DB_USER", "root"),
+        'PASSWORD': os.getenv("DB_PASSWORD", "root1234"),
+        'HOST': os.getenv("DB_HOST", "localhost"),   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
